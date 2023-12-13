@@ -14,7 +14,9 @@ export class Openchat extends ChatEngine {
 		this.stopPrompts = [
 			...this.stopPrompts,
 			'</s>',
-			'<|end_of_turn|>GPT4 Assistant:',
+			'\n</s>',
+			'\n</s',
+			'[end of text]',
 		];
 	}
 }
