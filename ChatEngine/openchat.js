@@ -4,7 +4,7 @@ import { ChatEngine } from './index.js';
  * This works for the following models (but is not limited to):
  * WizardLM
  */
-export class openchat extends ChatEngine {
+export class Openchat extends ChatEngine {
 	constructor() {
 		super({
 			roleMap: { assistant: 'ASSISTANT', user: 'USER', system: 'SYSTEM' },
