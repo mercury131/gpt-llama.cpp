@@ -5,7 +5,7 @@ import { Vicuna1_1Engine } from './Vicuna1_1Engine.js';
 import { VicunaEngine } from './VicunaEngine.js';
 import { RedPajamaEngine } from './RedPajama.js';
 import { DanteEngine } from './Dante.js';
-import { Openchat } from './openchat.js';
+import { openchat } from './openchat.js';
 
 
 export function initializeChatEngine(modelPath) {
