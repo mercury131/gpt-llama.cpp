@@ -5,7 +5,7 @@ import { Vicuna1_1Engine } from './Vicuna1_1Engine.js';
 import { VicunaEngine } from './VicunaEngine.js';
 import { RedPajamaEngine } from './RedPajama.js';
 import { DanteEngine } from './Dante.js';
-import { openchat } from './openchat.js';
+import { Openchat } from './openchat.js';
 
 
 export function initializeChatEngine(modelPath) {
@@ -17,7 +17,7 @@ export function initializeChatEngine(modelPath) {
 		'nous-hermes': AlpacaEngine,
 		redpajama: RedPajamaEngine,
 		dante: DanteEngine,
-		openchat: openchat,
+		openchat: Openchat,
 		default: ChatEngine,
 	};
 
