@@ -58,6 +58,14 @@ const userArgByName = {
 		type: 'string',
 		description: 'apply LoRA adapter (implies --no-mmap)',
 	},
+	'in-prefix': {
+		type: 'string',
+		description: 'Promt prefix',
+	},
+	'in-suffix': {
+		type: 'string',
+		description: 'Promt suffix',
+	},		
 	'lora-base': {
 		type: 'string',
 		description:
