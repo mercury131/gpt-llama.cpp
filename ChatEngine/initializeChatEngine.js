@@ -17,7 +17,7 @@ export function initializeChatEngine(modelPath) {
 		'nous-hermes': AlpacaEngine,
 		redpajama: RedPajamaEngine,
 		dante: DanteEngine,
-		dante: openchat,
+		openchat: openchat,
 		default: ChatEngine,
 	};
 
