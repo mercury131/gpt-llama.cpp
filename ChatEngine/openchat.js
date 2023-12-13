@@ -7,16 +7,11 @@ import { ChatEngine } from './index.js';
 export class Openchat extends ChatEngine {
 	constructor() {
 		super({
+			instructions: ' ',
 			roleMap: { assistant: 'ASSISTANT', user: 'USER', system: 'SYSTEM' },
-			instructions:
-				"GPT4 User: ",
+			stopPrompts: ['[end of text]'],
+			// Need few-shot prompting or else it goes off the rails and generates chinese in 3B
+			defaultMsgs:[],
 		});
-		this.stopPrompts = [
-			...this.stopPrompts,
-			'</s>',
-			'\n</s>',
-			'\n</s',
-			'[end of text]',
-		];
 	}
 }
