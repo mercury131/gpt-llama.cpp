@@ -280,10 +280,10 @@ router.post('/', async (req, res) => {
 
 					debounceTimer = setTimeout(() => {
 						console.log(
-							'> LLAMA.CPP UNRESPONSIVE FOR 20 SECS. ATTEMPTING TO RESUME GENERATION..'
+							'> LLAMA.CPP UNRESPONSIVE FOR 50 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						global.childProcess.stdin.write('\n');
-					}, 20000);
+					}, 50000);
 				}
 			},
 		});
@@ -336,10 +336,10 @@ router.post('/', async (req, res) => {
 
 					debounceTimer = setTimeout(() => {
 						console.log(
-							'> LLAMA.CPP UNRESPONSIVE FOR 20 SECS. ATTEMPTING TO RESUME GENERATION..'
+							'> LLAMA.CPP UNRESPONSIVE FOR 50 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						global.childProcess.stdin.write('\n');
-					}, 20000);
+					}, 50000);
 				}
 			},
 		});
