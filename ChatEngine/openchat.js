@@ -7,15 +7,12 @@ import { ChatEngine } from './index.js';
 export class Openchat extends ChatEngine {
 	constructor() {
 		super({
-			roleMap: { assistant: 'ASSISTANT', user: 'USER', system: 'SYSTEM' },
+			roleMap: { assistant: '<|end_of_turn|>GPT4 Assistant:', user: 'GPT4 User: ', system: 'SYSTEM' },
 			instructions:
-				"A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.",
+				"GPT4 User: ",
 		});
 		this.stopPrompts = [
 			...this.stopPrompts,
-			'</s>',
-			'\n</s>',
-			'\n</s',
 			'[end of text]',
 		];
 	}
