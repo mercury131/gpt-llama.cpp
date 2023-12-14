@@ -291,6 +291,35 @@ router.post('/completions', async (req, res) => {
 							'> LLAMA.CPP UNRESPONSIVE FOR 60 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						// global.childProcess.stdin.write('\n');
+					console.log('Request DONE');
+					res.write('event: data\n\n');
+					res.write(
+						`data: ${JSON.stringify(
+							dataToResponse(
+								undefined,
+								promptTokens,
+								completionTokens,
+								stream,
+								'stop'
+							)
+						)}\n\n`
+					);
+					res.write('event: data\n');
+					res.write('data: [DONE]\n\n');
+					res.end();
+					global.lastRequest = {
+						type: 'chat',
+						messages: [
+							...messages,
+							...lastMessages,
+							{ role: 'assistant', content: responseContent },
+						],
+					};
+					global.serverBusy = false;
+					stdoutStream.removeAllListeners();
+					clearTimeout(debounceTimer);
+						
+						//end
 					}, 60000);
 				}
 			},
@@ -350,6 +379,31 @@ router.post('/completions', async (req, res) => {
 							'> LLAMA.CPP UNRESPONSIVE FOR 60 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						// global.childProcess.stdin.write('\n');
+					console.log('Request DONE');
+					res
+						.status(200)
+						.json(
+							dataToResponse(
+								responseContent.trim(),
+								promptTokens,
+								completionTokens,
+								stream,
+								'stop'
+							)
+						);
+					global.lastRequest = {
+						type: 'chat',
+						messages: [
+							...messages,
+							...lastMessages,
+							{ role: 'assistant', content: responseContent },
+						],
+					};
+					global.serverBusy = false;
+					stdoutStream.removeAllListeners();
+					clearTimeout(debounceTimer);
+
+						//end
 					}, 60000);
 				}
 			},
