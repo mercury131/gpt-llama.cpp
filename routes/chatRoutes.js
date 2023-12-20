@@ -291,6 +291,7 @@ router.post('/completions', async (req, res) => {
 							'> LLAMA.CPP UNRESPONSIVE FOR 20 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						// global.childProcess.stdin.write('\n');
+					if (process.env.disable_llm_recurse) {
 					console.log('Request DONE');
 					res.write('event: data\n\n');
 					res.write(
@@ -318,8 +319,10 @@ router.post('/completions', async (req, res) => {
 					global.serverBusy = false;
 					stdoutStream.removeAllListeners();
 					clearTimeout(debounceTimer);
-						
+					
+					}
 						//end
+					
 					}, 20000);
 				}
 			},
@@ -379,6 +382,7 @@ router.post('/completions', async (req, res) => {
 							'> LLAMA.CPP UNRESPONSIVE FOR 20 SECS. ATTEMPTING TO RESUME GENERATION..'
 						);
 						// global.childProcess.stdin.write('\n');
+					if (process.env.disable_llm_recurse) {
 					console.log('Request DONE');
 					res
 						.status(200)
@@ -403,6 +407,7 @@ router.post('/completions', async (req, res) => {
 					stdoutStream.removeAllListeners();
 					clearTimeout(debounceTimer);
 
+					}
 						//end
 					}, 20000);
 				}
